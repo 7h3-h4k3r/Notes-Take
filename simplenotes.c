@@ -31,16 +31,17 @@ int main(int argc , char *argv[]){
     printf("File while trying to readit\n");
     exit(-1);
   }
-  printf("DEBUG @ %p Uid[%d] \n",&uid,uid); 
-  
+ 
   write(fd,"\n",1);
-  if(write(fd,buffer,sizeof(buffer)) == -1){
+  if(write(fd,buffer,strlen(buffer)) == -1){
     printf("File while trying to write it");
     exit(-1);
     }
+     write(fd,"\n",1);
+    printf("DEBUG @ %p Uid[%d] \n",&uid,uid); 
     printf("DEBUG @ %p User Data's %s \n",buffer,buffer);
     printf("DEBUG @ %p Data's %s\n",&data_File,data_File);
-  write(fd,"\n",1);
+ 
   free(buffer);
   buffer= NULL;
   free(data_File);
